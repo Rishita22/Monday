@@ -1,0 +1,20 @@
+apiVersion : apps/v1
+kind : Deployment
+metadata:
+  name : cat-deployment
+  labels:
+    app : cat
+spec:
+  template:
+    metadata:
+      labels:
+        app : cat
+    spec:
+      containers:
+        - name : cat2
+          image : devtechieops/cat:2.0
+          ports:
+            - containerPort : 8080
+  selector:
+    matchLabels:
+      app : cat

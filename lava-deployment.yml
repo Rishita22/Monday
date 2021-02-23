@@ -1,0 +1,20 @@
+apiVersion : apps/v1
+kind : Deployment
+metadata:
+  name : lava-deployment
+  labels:
+    app : lava
+spec:
+  template:
+    metadata:
+      labels:
+        app : lava
+    spec:
+      containers:
+        - name : lava2
+          image : devtechieops/lava:2.0
+          ports:
+            - containerPort : 80
+  selector:   
+    matchLabels:
+      app : lava
