@@ -1,0 +1,10 @@
+FROM httpd:latest
+RUN rm -rf /usr/local/apache2/htdocs/html/index.html
+RUN apt update -y
+RUN apt install wget -y
+RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page264/lava.zip
+RUN apt install unzip -y
+RUN unzip lava.zip
+RUN rm -rf lava.zip
+RUN mv templatemo_540_lava_landing_page/* /usr/local/apache2/htdocs/html/
+CMD httpd-foreground
